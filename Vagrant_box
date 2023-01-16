@@ -1,0 +1,10 @@
+Создать Vagrant box c помощью Packer
+Формируем и настраиваем файл centos.json, ks.cfg — файл автоматической конфигурации ОС и 2 скрипта, которые должны будут выполниться после установки ОС:
+scripts/stage-1-kernel-update.sh,scripts/stage-2-clean.sh
+
+В моем случае изменил параметры:
+"pause_before": "5m",
+"start_retry_timeout": "10m",
+так как не хватало времени на запуск "scripts/stage-2-clean.sh" и выходила ошибка.
+
+Cоздал образ системы командой: packer build centos.json после чего добавил его в vagrant и проверил установку с обновленным ядром.
