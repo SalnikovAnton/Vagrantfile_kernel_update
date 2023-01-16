@@ -1,0 +1,5 @@
+Загрузить Vagrant box в Vagrant Cloud
+После регистрации на Vagrant Cloud и получив свой Token выполнил загрузку образа в Vagrant Cloud командой 
+vagrant cloud publish --release itsaa/centos8-kernel5 1.0 virtualbox centos-8-kernel-5-x86_64-Minimal.box
+
+Пришлось отвязать учетную запись от HSP аккаунта из-за ошибки при загрузке.
