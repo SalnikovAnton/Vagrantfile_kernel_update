@@ -1,0 +1,7 @@
+Разворачиваем вертуальную машину использую Vagrantfile для ОС CentOS 8 Stream и подключаемся к ней по ssh
+Проверяем версию ядра командой uname -r
+Далее подключаем репозиторий от куда будем устанавливать ядро sudo yum install -y https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+Устанавливаем ядро командой sudo yum --enablerepo elrepo-kernel install kernel-ml -y
+Правим загрузчик. Обновить конфигурацию загрузчика: sudo grub2-mkconfig -o /boot/grub2/grub.cfg и выбрать загрузку нового ядра по-умолчанию: sudo grub2-set-default 0
+Перезагружаем вертуальную машину sudo reboot
+Опять подключаемся по ssh и смотрим версию ядра uname -r , ядро обновилось!
